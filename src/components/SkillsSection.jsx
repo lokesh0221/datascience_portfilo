@@ -2,29 +2,42 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
+  // Data & ML
+  { name: "🐍 Python", level: 90, category: "tools" },
+  { name: "🐼 Pandas", level: 85, category: "tools" },
+  { name: "📊 NumPy", level: 85, category: "tools" },
+  { name: "🤖 Scikit-Learn", level: 80, category: "tools" },
+  { name: "🧠 TensorFlow", level: 75, category: "tools" },
+  { name: "🔥 PyTorch", level: 75, category: "tools" },
+  { name: "🗃️ SQL", level: 85, category: "tools" },
+  { name: "📉 R Programming", level: 70, category: "tools" },
+  { name: "📈 Tableau", level: 70, category: "tools" },
+  { name: "📊 Power BI", level: 70, category: "tools" },
+  { name: "🔧 Git / GitHub", level: 90, category: "tools" },
+  { name: "🐳 Docker", level: 70, category: "tools" },
+
   // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
+  { name: "🌐 HTML / CSS", level: 95, category: "frontend" },
+  { name: "⚙️ JavaScript", level: 90, category: "frontend" },
+  { name: "⚛️ React", level: 90, category: "frontend" },
+  { name: "📘 TypeScript", level: 85, category: "frontend" },
+  { name: "🎨 Tailwind CSS", level: 90, category: "frontend" },
+  { name: "⏭️ Next.js", level: 80, category: "frontend" },
 
   // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
-  { name: "GraphQL", level: 60, category: "backend" },
+  { name: "🟩 Node.js", level: 80, category: "backend" },
+  { name: "🚏 Express.js", level: 75, category: "backend" },
+  { name: "🍃 MongoDB", level: 70, category: "backend" },
+  { name: "🐘 PostgreSQL", level: 65, category: "backend" },
+  { name: "🔺 GraphQL", level: 60, category: "backend" },
 
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "Figma", level: 85, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
+  // Tools & Platforms
+  { name: "🎨 Figma", level: 85, category: "tools" },
+  { name: "💻 VS Code", level: 95, category: "tools" },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+// show tools first in the filter so Data Science / tools appear at top
+const categories = ["all", "tools", "frontend", "backend"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -65,18 +78,7 @@ export const SkillsSection = () => {
               <div className="text-left mb-4">
                 <h3 className="font-semibold text-lg"> {skill.name}</h3>
               </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
+              {/* percentage bar removed as requested */}
             </div>
           ))}
         </div>
