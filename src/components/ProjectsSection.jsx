@@ -3,22 +3,22 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
+    title: "DocuMetrics",
+    description: "A Python-based document analytics web app for extracting and visualizing metrics from documents.",
+    image: "/projects/image1.png",
+    tags: ["Python", "Flask", "Streamlit"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/lokesh0221/DocuMetrics",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "AI_WebScraper",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+      "An AI-powered web crawler built using LangChain and OpenAI that scrapes, cleans, and extracts structured information from websites using schema-based LLM extraction.",
+    image: "/projects/image.png",
+    tags: ["Python", "LangChain", "OpenAI", "Playwright", "BeautifulSoup"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/lokesh0221/AI_WebScraper",
   },
   {
     id: 3,
