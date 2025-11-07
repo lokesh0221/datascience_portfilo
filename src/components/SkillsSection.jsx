@@ -2,42 +2,55 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  // Data & ML
-  { name: "🐍 Python", level: 90, category: "tools" },
-  { name: "🐼 Pandas", level: 85, category: "tools" },
-  { name: "📊 NumPy", level: 85, category: "tools" },
-  { name: "🤖 Scikit-Learn", level: 80, category: "tools" },
-  { name: "🧠 TensorFlow", level: 75, category: "tools" },
-  { name: "🔥 PyTorch", level: 75, category: "tools" },
-  { name: "🗃️ SQL", level: 85, category: "tools" },
-  { name: "📉 R Programming", level: 70, category: "tools" },
-  { name: "📈 Tableau", level: 70, category: "tools" },
-  { name: "📊 Power BI", level: 70, category: "tools" },
-  { name: "🔧 Git / GitHub", level: 90, category: "tools" },
-  { name: "🐳 Docker", level: 70, category: "tools" },
+  // 🧠 AI & Machine Learning
+  { name: "🐍 Python", level: 90, category: "ai-ml" },
+  { name: "🤖 Scikit-Learn", level: 85, category: "ai-ml" },
+  { name: "🧠 TensorFlow", level: 80, category: "ai-ml" },
+  { name: "🔥 PyTorch", level: 80, category: "ai-ml" },
+  { name: "🧩 Keras", level: 75, category: "ai-ml" },
+  { name: "🧬 OpenCV", level: 75, category: "ai-ml" },
+  { name: "🗣️ NLP (Transformers / Hugging Face)", level: 70, category: "ai-ml" },
+  { name: "📈 Data Visualization (Matplotlib / Seaborn)", level: 80, category: "ai-ml" },
+  { name: "🔍 Machine Learning Pipeline (EDA → Model → Deployment)", level: 85, category: "ai-ml" },
 
-  // Frontend
-  { name: "🌐 HTML / CSS", level: 95, category: "frontend" },
-  { name: "⚙️ JavaScript", level: 90, category: "frontend" },
+  // 📊 Data Science & Analytics
+  { name: "🐼 Pandas", level: 90, category: "data-science" },
+  { name: "📊 NumPy", level: 85, category: "data-science" },
+  { name: "🧮 Statistics & Probability", level: 80, category: "data-science" },
+  { name: "📉 R Programming", level: 70, category: "data-science" },
+  { name: "📈 Tableau", level: 75, category: "data-science" },
+  { name: "📊 Power BI", level: 75, category: "data-science" },
+  { name: "🗃️ SQL", level: 85, category: "data-science" },
+  { name: "☁️ AWS (S3, Lambda, Glue, Redshift)", level: 70, category: "data-science" },
+  { name: "🧰 Data Engineering (ETL / Pipeline Design)", level: 75, category: "data-science" },
+
+  // 🌐 Frontend (for AI Web Interfaces)
   { name: "⚛️ React", level: 90, category: "frontend" },
+  { name: "⏭️ Next.js", level: 85, category: "frontend" },
   { name: "📘 TypeScript", level: 85, category: "frontend" },
   { name: "🎨 Tailwind CSS", level: 90, category: "frontend" },
-  { name: "⏭️ Next.js", level: 80, category: "frontend" },
+  { name: "🌐 HTML / CSS", level: 90, category: "frontend" },
+  { name: "⚙️ JavaScript", level: 90, category: "frontend" },
 
-  // Backend
-  { name: "🟩 Node.js", level: 80, category: "backend" },
+  // 🔧 Backend & APIs
+  { name: "🐍 FastAPI", level: 85, category: "backend" },
   { name: "🚏 Express.js", level: 75, category: "backend" },
+  { name: "🟩 Node.js", level: 80, category: "backend" },
   { name: "🍃 MongoDB", level: 70, category: "backend" },
-  { name: "🐘 PostgreSQL", level: 65, category: "backend" },
-  { name: "🔺 GraphQL", level: 60, category: "backend" },
+  { name: "🐘 PostgreSQL", level: 70, category: "backend" },
+  { name: "🔺 GraphQL", level: 65, category: "backend" },
 
-  // Tools & Platforms
-  { name: "🎨 Figma", level: 85, category: "tools" },
+  // ⚙️ Tools & Platforms
+  { name: "🔧 Git / GitHub", level: 90, category: "tools" },
+  { name: "🐳 Docker", level: 70, category: "tools" },
   { name: "💻 VS Code", level: 95, category: "tools" },
+  { name: "🎨 Figma", level: 85, category: "tools" },
+  { name: "🧠 Jupyter / Colab", level: 90, category: "tools" },
+  { name: "🚀 Hugging Face", level: 80, category: "tools" },
 ];
 
-// show tools first in the filter so Data Science / tools appear at top
-const categories = ["all", "tools", "frontend", "backend"];
+const categories = ["all", "ai-ml", "data-science", "frontend", "backend", "tools"];
+
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
