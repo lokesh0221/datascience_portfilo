@@ -12,6 +12,18 @@ dist
 dist-ssr
 *.local
 
+# Env & secrets
+.env
+.env.*
+!.env.example
+.mcp.json
+
+# Build / tooling caches
+.vite
+.cache
+coverage
+*.tsbuildinfo
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

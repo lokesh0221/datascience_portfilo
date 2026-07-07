@@ -1,86 +1,69 @@
 import { Briefcase, Code, User } from "lucide-react";
+import SpotlightCard from "@/reactbits/SpotlightCard";
+import AnimatedContent from "@/reactbits/AnimatedContent";
+import { SectionHeading } from "./SectionHeading";
+
+const cards = [
+  {
+    icon: Code,
+    title: "Snowflake & Data Engineering",
+    text: "Data Contracts, ETL/ELT pipelines, migrations, Snowpark, Streams & Tasks, and star/snowflake schema modeling.",
+  },
+  {
+    icon: User,
+    title: "ML & GenAI",
+    text: "LLMs, RAG, Agentic AI, prompt engineering, and Snowpark ML for predictive analytics.",
+  },
+  {
+    icon: Briefcase,
+    title: "BI & Analytics",
+    text: "Power BI, DAX, data modeling, Row-Level Security, and KPI dashboards for executive reporting.",
+  },
+];
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About Me
-        </h2>
+    <section id="about" className="py-8 md:py-12 px-4 relative">
+      <div className="container mx-auto max-w-6xl">
+        <SectionHeading index="01" eyebrow="About" title="A quick introduction" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left column: About text */}
-          <div className="space-y-6">
-            <p className="text-muted-foreground">
-              Hello! I'm <strong>Nannuri Venkata Lokesh</strong>, a passionate data
-              scientist with a strong foundation in machine learning,
-              statistical analysis, and data visualization. I specialize in
-              extracting meaningful insights from complex datasets and building
-              predictive models that drive business value.
+        <div className="grid lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16">
+          {/* Narrative */}
+          <AnimatedContent direction="horizontal" distance={80} reverse className="space-y-5 text-left">
+            <p className="text-lg text-foreground/90">
+              Hello! I'm <strong className="text-primary">Nannuri Venkata Lokesh</strong>, a Software
+              Engineer at Techstar Group working on the Snowflake AI Data Cloud.
             </p>
-
             <p className="text-muted-foreground">
-              My approach combines rigorous statistical methods with modern
-              machine learning techniques. I believe in the power of data
-              storytelling – making complex analyses accessible and actionable
-              for stakeholders.
+              I design reusable Data Contracts, run end-to-end data migrations to Snowflake, and
+              convert legacy PostgreSQL stored procedures into scalable Snowpark transformations.
+              My work spans data engineering, BI &amp; analytics, and applied ML — from ETL/ELT
+              pipelines and star-schema models to predictive models like a CatBoost loan-default
+              classifier on Snowpark Python.
             </p>
-
             <p className="text-muted-foreground">
-              When I'm not analyzing data, you'll find me exploring new ML
-              frameworks, contributing to open-source projects, or writing about
-              data science on my blog.
+              I hold a B.Tech in Computer Science (Data Science) from Woxsen University and I'm a
+              SnowPro Associate certified engineer with a strong interest in GenAI, RAG, and Agentic AI.
             </p>
+          </AnimatedContent>
 
-            {/* Removed Data Engineering / Machine Learning / Visualization subsections as requested */}
-          </div>
-
-          {/* Right column: restored original feature cards */}
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Data Engineering</h4>
-                  <p className="text-muted-foreground">
-                    Building and optimizing data pipelines for efficient ETL pipelines, data warehousing, and big data processing
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Machine Learning</h4>
-                  <p className="text-muted-foreground">
-                    Building and deploying machine learning models for
-                    predictive analytics.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Visualization</h4>
-                  <p className="text-muted-foreground">
-                    Creating interactive dashboards and visualizations to
-                    communicate insights effectively.
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Capability rail */}
+          <div className="space-y-4">
+            {cards.map((card, i) => (
+              <AnimatedContent key={i} direction="horizontal" distance={80} delay={i * 0.1}>
+                <SpotlightCard className="p-5 rounded-xl border border-border bg-card/60 backdrop-blur-sm">
+                  <div className="flex items-start gap-4 text-left">
+                    <div className="p-2.5 rounded-lg bg-primary/10 shrink-0">
+                      <card.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold">{card.title}</h4>
+                      <p className="text-sm text-muted-foreground mt-1">{card.text}</p>
+                    </div>
+                  </div>
+                </SpotlightCard>
+              </AnimatedContent>
+            ))}
           </div>
         </div>
       </div>

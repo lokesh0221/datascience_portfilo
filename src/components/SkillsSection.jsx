@@ -1,98 +1,79 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { Snowflake, Database, BarChart3, Brain, Code2, Cloud, Wrench } from "lucide-react";
+import SpotlightCard from "@/reactbits/SpotlightCard";
+import AnimatedContent from "@/reactbits/AnimatedContent";
+import { SectionHeading } from "./SectionHeading";
 
-const skills = [
-  // 🧠 AI & Machine Learning
-  { name: "🐍 Python", level: 90, category: "ai-ml" },
-  { name: "🤖 Scikit-Learn", level: 85, category: "ai-ml" },
-  { name: "🧠 TensorFlow", level: 80, category: "ai-ml" },
-  { name: "🔥 PyTorch", level: 80, category: "ai-ml" },
-  { name: "🧩 Keras", level: 75, category: "ai-ml" },
-  { name: "🧬 OpenCV", level: 75, category: "ai-ml" },
-  { name: "🗣️ NLP (Transformers / Hugging Face)", level: 70, category: "ai-ml" },
-  { name: "📈 Data Visualization (Matplotlib / Seaborn)", level: 80, category: "ai-ml" },
-  { name: "🔍 Machine Learning Pipeline (EDA → Model → Deployment)", level: 85, category: "ai-ml" },
-
-  // 📊 Data Science & Analytics
-  { name: "🐼 Pandas", level: 90, category: "data-science" },
-  { name: "📊 NumPy", level: 85, category: "data-science" },
-  { name: "🧮 Statistics & Probability", level: 80, category: "data-science" },
-  { name: "📉 R Programming", level: 70, category: "data-science" },
-  { name: "📈 Tableau", level: 75, category: "data-science" },
-  { name: "📊 Power BI", level: 75, category: "data-science" },
-  { name: "🗃️ SQL", level: 85, category: "data-science" },
-  { name: "☁️ AWS (S3, Lambda, Glue, Redshift)", level: 70, category: "data-science" },
-  { name: "🧰 Data Engineering (ETL / Pipeline Design)", level: 75, category: "data-science" },
-
-  // 🌐 Frontend (for AI Web Interfaces)
-  { name: "⚛️ React", level: 90, category: "frontend" },
-  { name: "⏭️ Next.js", level: 85, category: "frontend" },
-  { name: "📘 TypeScript", level: 85, category: "frontend" },
-  { name: "🎨 Tailwind CSS", level: 90, category: "frontend" },
-  { name: "🌐 HTML / CSS", level: 90, category: "frontend" },
-  { name: "⚙️ JavaScript", level: 90, category: "frontend" },
-
-  // 🔧 Backend & APIs
-  { name: "🐍 FastAPI", level: 85, category: "backend" },
-  { name: "🚏 Express.js", level: 75, category: "backend" },
-  { name: "🟩 Node.js", level: 80, category: "backend" },
-  { name: "🍃 MongoDB", level: 70, category: "backend" },
-  { name: "🐘 PostgreSQL", level: 70, category: "backend" },
-  { name: "🔺 GraphQL", level: 65, category: "backend" },
-
-  // ⚙️ Tools & Platforms
-  { name: "🔧 Git / GitHub", level: 90, category: "tools" },
-  { name: "🐳 Docker", level: 70, category: "tools" },
-  { name: "💻 VS Code", level: 95, category: "tools" },
-  { name: "🎨 Figma", level: 85, category: "tools" },
-  { name: "🧠 Jupyter / Colab", level: 90, category: "tools" },
-  { name: "🚀 Hugging Face", level: 80, category: "tools" },
+const groups = [
+  {
+    label: "Snowflake",
+    icon: Snowflake,
+    skills: ["Snowflake AI Data Cloud", "Snowpark (Python)", "SnowSQL", "Stored Procedures", "Streams & Tasks", "Cortex AI", "Streamlit", "dbt"],
+  },
+  {
+    label: "Data Engineering",
+    icon: Database,
+    skills: ["ETL / ELT Pipelines", "Data Migration", "Data Integration", "Star & Snowflake Schema", "Data Lineage", "Airflow"],
+  },
+  {
+    label: "BI & Analytics",
+    icon: BarChart3,
+    skills: ["Power BI", "DAX", "Data Modeling", "Row-Level Security", "KPI Dashboarding"],
+  },
+  {
+    label: "ML & GenAI",
+    icon: Brain,
+    skills: ["LLMs", "RAG", "Agentic AI", "Prompt Engineering", "Snowpark ML"],
+  },
+  {
+    label: "Languages",
+    icon: Code2,
+    skills: ["SQL", "Python", "JavaScript", "R", "NoSQL"],
+  },
+  {
+    label: "Cloud & Databases",
+    icon: Cloud,
+    skills: ["AWS", "Azure", "GCP", "PostgreSQL", "MySQL"],
+  },
+  {
+    label: "DevOps & Tools",
+    icon: Wrench,
+    skills: ["Git", "GitHub Actions", "Docker", "CI/CD", "REST APIs", "FastAPI", "Linux", "Postman"],
+  },
 ];
 
-const categories = ["all", "ai-ml", "data-science", "frontend", "backend", "tools"];
-
-
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
-        </h2>
+    <section id="skills" className="py-8 md:py-12 px-4 relative">
+      <div className="container mx-auto max-w-6xl">
+        <SectionHeading
+          index="02"
+          eyebrow="Skills"
+          title="What I work with"
+          subtitle="A snapshot of my toolkit, grouped by domain."
+        />
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              {/* percentage bar removed as requested */}
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {groups.map((group, i) => (
+            <AnimatedContent key={group.label} distance={60} delay={i * 0.08}>
+              <SpotlightCard className="h-full p-6 rounded-xl border border-border bg-card/60 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-5 text-left">
+                  <div className="p-2.5 rounded-lg bg-primary/10">
+                    <group.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg">{group.label}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 text-sm rounded-md border border-border bg-background/50 text-foreground/80 hover:border-primary/40 hover:text-primary transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </SpotlightCard>
+            </AnimatedContent>
           ))}
         </div>
       </div>

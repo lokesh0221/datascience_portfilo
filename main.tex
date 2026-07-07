@@ -1,0 +1,179 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{geometry}
+
+% ---------- PAGE GEOMETRY ----------
+\geometry{
+  a4paper,
+  left=0.45in,
+  right=0.45in,
+  top=0.3in,
+  bottom=0.25in
+}
+
+\urlstyle{rm}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ---------- SECTION TITLE ----------
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
+
+% ---------- CUSTOM COMMANDS ----------
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small{#2} \\
+      \textit{\small{#3}} & \textit{\small{#4}} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2\vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2}
+  }\vspace{-4pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, topsep=2pt, itemsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% ============================
+\begin{document}
+
+% ---------- HEADING ----------
+\begin{center}
+  {\LARGE \textbf{\color{Blue}Nannuri Venkata Lokesh}}\\[5pt]
+  \small{
+    \href{mailto:venkatlokesh.221@gmail.com}{venkatlokesh.221@gmail.com}
+    \quad$|$\quad +91 9550970816
+    \quad$|$\quad \href{https://linkedin.com/in/venkatlokesh221}{LinkedIn: venkatlokesh221}
+    \quad$|$\quad \href{https://github.com/lokesh0221}{GitHub: lokesh0221}
+  }
+\end{center}
+\vspace{-14pt}
+
+% ---------- SKILLS SUMMARY ----------
+\section{\color{BlueViolet}Skills Summary}
+\resumeSubHeadingListStart
+
+\resumeSubItem{\color{Blue}Snowflake}
+{Snowflake AI Data Cloud, SnowSQL, Stored Procedures, Data Sharing, Snowpark (Python), Virtual Warehouses, Streams, Tasks, Cortex AI, Streamlit, dbt}
+
+
+  \resumeSubItem{\color{Blue}Data Engineering}{ETL/ELT Pipelines, Data Integration, Data Migration, Metadata Mapping, Data Lineage, Star Schema, Snowflake Schema}
+  \resumeSubItem{\color{Blue}BI \& Analytics}{Power BI, DAX, Data Modeling, Row-Level Security, KPI Dashboarding}
+  \resumeSubItem{\color{Blue}Languages}{SQL, Python, JavaScript, NoSQL, R}
+  \resumeSubItem{\color{Blue}Cloud \& Databases}{AWS, Azure, PostgreSQL, MySQL, GCP}
+  \resumeSubItem{\color{Blue}ML \& GenAI}{LLMs, RAG, Agentic AI, Prompt Engineering, Snowpark ML}
+\resumeSubItem{\color{Blue}DevOps \& Tools}
+{Git, GitHub Actions, Docker, CI/CD, REST APIs, FastAPI, Linux, Airflow, Postman}
+
+\resumeSubHeadingListEnd
+\vspace{-6pt}
+
+% ---------- EDUCATION ----------
+\section{\color{BlueViolet}Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {\color{Blue}Woxsen University}{Hyderabad, India}
+    {B.Tech in Computer Science (Data Science); CGPA: 8.2/10}{Aug 2022 -- May 2026}
+\resumeSubHeadingListEnd
+\vspace{-6pt}
+
+% ---------- EXPERIENCE ----------
+\section{\color{BlueViolet}Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {\color{Blue}Techstar Group}{Hyderabad, India}
+    {Software Engineer -- Snowflake}{Nov 2025 -- Present}
+    \resumeItemListStart
+      \resumeItem{Data Contracts}
+        {Designing and implementing reusable \textbf{Data Contracts} using Open Data Contract Standard (ODCS) to enforce schema validation, data quality rules, SLA definitions, and governance standards across enterprise data pipelines.}
+
+      \resumeItem{Data Migration}
+        {Executing end-to-end \textbf{data migration} from legacy databases to Snowflake, including metadata mapping, schema transformation, reference data validation, and lineage documentation to ensure data consistency and compliance.}
+
+      \resumeItem{SP Conversion}
+        {Converting legacy PostgreSQL \textbf{Stored Procedures (SPs)} into Snowflake-compatible SQL and Snowpark-based transformations, optimizing procedural logic for scalable cloud-native execution.}
+
+\resumeItem{ML Model Development}
+  {Developed a \textbf{Loan Default Prediction} machine learning model using \textbf{CatBoost} and Snowpark Python to identify high-risk borrowers. Performed feature engineering, categorical feature handling, model training, and evaluation.}
+
+
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+% ---------- PROJECTS ----------
+\section{\color{BlueViolet}Projects}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {\color{Blue}Snowflake FinOps -- Cost Governance \& Optimization Platform}{}
+    {Snowflake, Cortex AI, React.js}{May 2026 -- Present}
+    \resumeItemListStart
+      \item\small{Built a FinOps framework on Snowflake by querying ACCOUNT\_USAGE and ORGANIZATION\_USAGE views to track warehouse credit consumption, storage costs, and query spend across departments and environments.\vspace{-1pt}}
+      \item\small{Configured Resource Monitors with tiered credit quotas and auto-suspend policies per warehouse; implemented tagging strategies and RBAC to attribute costs to individual teams and projects.\vspace{-1pt}}
+      \item\small{Developed a React-based cost dashboard with Snowpark Python for anomaly detection on spend patterns, warehouse idle-time analysis, and automated Slack/email alerts when budgets exceed defined thresholds.\vspace{-1pt}}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {\color{Blue}Snowflake-to-Power BI Executive Analytics Platform}{}
+    {Snowflake, Power BI, DAX, SQL, Row-Level Security}{March 2026 -- May 2026}
+    \resumeItemListStart
+      \item\small{Built an end-to-end pipeline using the Superstore Sales dataset ingested raw CSV into Snowflake, modeled a Star Schema and connected to Power BI for executive reporting.\vspace{-1pt}}
+      \item\small{Created 15+ DAX measures with DirectQuery optimized via Snowflake materialized views; implemented Row-Level Security and scheduled refreshes through Power BI Gateway.\vspace{-1pt}}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {\color{Blue}Facial Skin Analysis and Recommendation System}{}
+    {Python, TensorFlow, OpenCV, CNN, React.js}{Dec 2024 -- Feb 2025}
+    \resumeItemListStart
+      \item\small{Implemented CNN-based computer vision pipelines for skin tone and skin type classification from images.\vspace{-1pt}}
+      \item\small{Designed a personalized recommendation engine mapping user attributes to skincare ingredients using rule-based and ML techniques.\vspace{-1pt}}
+      \item\small{Performed rigorous model evaluation and data augmentation, improving classification accuracy and generalization.\vspace{-1pt}}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6pt}
+
+% ---------- CERTIFICATIONS ----------
+\section{\color{BlueViolet}Certifications}
+\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=3pt]
+  \item\small{SnowPro Associate: Platform Certification -- Snowflake \hfill \href{https://achieve.snowflake.com/b02ee5f8-df1b-4bbb-b617-47b01df005cc}{\textit{Credential Link}}}
+  \item\small{IBM RAG and Agentic AI Specialization -- Coursera \hfill \href{https://www.coursera.org/account/accomplishments/specialization/certificate/KB2QWGVOYVA8}{\textit{Credential Link}}}
+  \item\small{IBM Data Science Professional Certificate -- Coursera \hfill \href{https://www.coursera.org/account/accomplishments/specialization/certificate/DAQRYAFDPNCB}{\textit{Credential Link}}}
+\end{itemize}
+\vspace{-6pt}
+
+% ---------- ACHIEVEMENTS ----------
+\section{\color{BlueViolet}Achievements}
+\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=3pt]
+  \item\small{\textbf{\color{Blue}Selected Participant}, ReGen Hackathon 2025 \quad$|$\quad \textbf{\color{Blue}Second Runner-Up}, ML Hackathon 2024 \quad$|$\quad \textbf{\color{Blue}First Runner-Up}, Inter-College Coding Hackathon}
+  \item\small{\textbf{\color{Blue}Peer Mentor} -- Mentored junior students in Machine Learning, Python, and AI concepts}
+\end{itemize}
+
+\end{document}

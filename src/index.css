@@ -97,8 +97,21 @@
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+@utility font-display {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Crisp section index number */
+@utility section-index {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  @apply text-primary/70 font-medium;
 }
 
 @utility container {
