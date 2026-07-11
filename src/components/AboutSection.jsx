@@ -29,7 +29,8 @@ export const AboutSection = () => {
 
         <div className="grid lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16">
           {/* Narrative */}
-          <AnimatedContent direction="horizontal" distance={80} reverse className="space-y-5 text-left">
+          <AnimatedContent direction="horizontal" distance={80} reverse>
+            <SpotlightCard className="h-full p-6 md:p-8 rounded-xl border border-border bg-card/60 backdrop-blur-sm space-y-5 text-left">
             <p className="text-lg text-foreground/90">
               Hello! I'm <strong className="text-primary">Nannuri Venkata Lokesh</strong>, a Software
               Engineer at Techstar Group working on the Snowflake AI Data Cloud.
@@ -45,6 +46,7 @@ export const AboutSection = () => {
               I hold a B.Tech in Computer Science (Data Science) from Woxsen University and I'm a
               SnowPro Associate certified engineer with a strong interest in GenAI, RAG, and Agentic AI.
             </p>
+            </SpotlightCard>
           </AnimatedContent>
 
           {/* Capability rail */}

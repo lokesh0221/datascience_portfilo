@@ -9,6 +9,11 @@ import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import Aurora from "@/reactbits/Aurora";
 import ClickSpark from "@/reactbits/ClickSpark";
+import { lazy, Suspense } from "react";
+
+const Scene3D = lazy(() =>
+  import("../components/three/Scene3D").then((m) => ({ default: m.Scene3D }))
+);
 
 export const Home = () => {
   return (
@@ -17,10 +22,15 @@ export const Home = () => {
         {/* Theme Toggle */}
         <ThemeToggle />
 
-        {/* Aurora Background */}
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-70">
+        {/* Subtle Aurora wash under the 3D scene */}
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-40">
           <Aurora colorStops={["#8B5CF6", "#5227FF", "#A78BFA"]} amplitude={1.1} blend={0.55} speed={0.7} />
         </div>
+
+        {/* Three.js 3D scene (r3f + drei) — lazy so text paints first */}
+        <Suspense fallback={null}>
+          <Scene3D />
+        </Suspense>
 
         {/* Navbar */}
         <Navbar />

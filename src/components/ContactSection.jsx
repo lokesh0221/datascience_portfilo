@@ -31,7 +31,8 @@ export const ContactSection = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <AnimatedContent direction="horizontal" distance={80} reverse className="space-y-8">
+          <AnimatedContent direction="horizontal" distance={80} reverse>
+            <SpotlightCard className="h-full p-8 rounded-xl border border-border bg-card/60 backdrop-blur-sm space-y-8 text-left">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
 
             <div className="space-y-6">
@@ -95,6 +96,7 @@ export const ContactSection = () => {
                 </a>
               </div>
             </div>
+            </SpotlightCard>
           </AnimatedContent>
 
           <AnimatedContent direction="horizontal" distance={80}>
